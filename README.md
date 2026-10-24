@@ -2,6 +2,8 @@
 
 Windows 桌面工具，用于浏览、筛选、预览和恢复 Claude Code 与 OpenAI Codex CLI 会话。程序只使用 Python 标准库和 Tkinter，保持 `session_launcher.py`、`assets/` 与主脚本同目录即可运行。
 
+![界面截图](docs/screenshot.png)
+
 ## 启动
 
 双击 [CLI会话管理器.bat](CLI会话管理器.bat)。启动器优先使用 `pythonw` 隐藏控制台，找不到时回退到 `python`。也可以直接运行 `python cli_session_manager.py`。需要 Python 3.10+，并确保安装了 Tkinter。
