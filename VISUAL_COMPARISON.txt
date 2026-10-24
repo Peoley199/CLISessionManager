@@ -1,0 +1,28 @@
+CLI 会话管理器：旧行为与当前行为
+
+旧行为
+- 默认窗口约 1100x600，首次列表可用空间小，列会相互挤压。
+- 只在正常关闭时保存部分布局；强制结束旧实例会跳过保存。
+- 固定延迟恢复分隔条，Tk 后续布局可能覆盖结果。
+- 没有稳定的横向浏览、可见列管理和高 DPI 对话框夹紧。
+- 预览和新建会话的工作流混在筛选状态中，批量操作和详情信息不足。
+
+当前行为
+- 首次按当前显示器工作区自适应大窗口，列表默认约占 68%，支持最小尺寸和断开副屏后的可见夹紧。
+- 正常尺寸、最大化状态、分隔比例、列宽、可见列、行距、横向位置、筛选、排序、选中项和顶部位置均持久化；350ms 防抖保存，关闭补保存。
+- Windows named mutex/event 让重复启动唤回原窗口，不强杀已有实例。
+- 表格支持水平滚动、显示列、舒适/紧凑行距、适应窗口、重置布局以及表头边界双击适配。
+- 对话与详情分栏，预览异步且丢弃过期结果；新建会话独立选择 CLI 与项目目录；批量分组和复制 ID 可用。
+
+实际截图
+- 桌面：[output/qa/desktop.png](output/qa/desktop.png)
+- 详情：[output/qa/details.png](output/qa/details.png)
+- 窄窗口：[output/qa/narrow.png](output/qa/narrow.png)
+- 长筛选条件：[output/qa/long-filter.png](output/qa/long-filter.png)
+- 紧凑行距：[output/qa/compact.png](output/qa/compact.png)
+- 空状态：[output/qa/empty.png](output/qa/empty.png)
+- 新建会话：[output/qa/new-session.png](output/qa/new-session.png)
+- 150% 缩放新建会话：[output/qa/dpi150-new.png](output/qa/dpi150-new.png)
+
+以上截图由 Pillow 捕获 Tk 窗口客户区，避免桌面通知遮挡；具体尺寸、行数、分隔条位置和越界检查见 `output/qa/visual-checks.json`。
+

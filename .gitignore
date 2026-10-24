@@ -1,0 +1,12 @@
+# 本地验证产物（含本机路径、真实会话数据）
+output/
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+
+# 编辑器 / 系统文件
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
